@@ -1,0 +1,123 @@
+<!-- Author: Oussoumane Mahaman Madani -->
+
+<?php
+/**
+ * Created by PhpStorm.
+ * User: comgoon
+ * Date: 8/14/18
+ * Time: 2:31 PM
+ */
+
+
+
+$carte1 = array(
+    '1' => array(
+        HEART1,
+        '<img src="img/heart11.jpeg" alt="image11 here" width="200px" height="200px">',
+    )
+);
+
+$carte2 = array(
+    '2' => array(
+        HEART2,
+        '<img src="img/heart12.jpeg" alt="image11 here" width="200px" height="200px">',
+    )
+);
+
+$carte3 = array(
+    '3' => array(
+        HEART3,
+        '<img src="img/heart13.jpeg" alt="image11 here" width="200px" height="200px">',
+    )
+);
+
+$carte4 = array(
+    '4' => array(
+        HEART4,
+        '<img src="img/heart14.jpeg" alt="image11 here" width="200px" height="200px">',
+    )
+);
+
+$carte5 = array(
+    '5' => array(
+        HEART5,
+        '<img src="img/heart15.jpeg" alt="image11 here" width="200px" height="200px">',
+    )
+);
+$cartes = array ( $carte1, $carte2, $carte3, $carte4, $carte5,);
+
+
+?>
+
+
+<?php
+$x =0;
+$y = 0;
+for ($i = 1; $i <= 5; $i++){
+
+    $val_rand1 = array_rand($cartes);
+    $val_rand2 = array_rand($cartes);
+
+    $ScoreJ1 = key($cartes[$val_rand1]) ;
+    $ScoreJ2 = key($cartes[$val_rand2]) ;
+
+
+    if ($ScoreJ1>$ScoreJ2){
+
+        $x += 1;
+
+    }elseif($ScoreJ1<$ScoreJ2){
+
+        $y += 1;
+    }else{
+        $x += 0;
+        $y += 0;
+    }
+
+    echo "<div style='display: flex; justify-content: space-around'>";
+    echo "<div style='display: flex; flex-direction: column;'>";
+    echo "<p style='justify-content: center'><strong>PLAYER ONE</strong></p>";
+    echo "Card Name: ";
+    print_r($cartes[$val_rand1][$ScoreJ1][0]);
+    print_r($cartes[$val_rand1][$ScoreJ1][1]);
+    echo "</div>";
+
+
+    echo "<div style='display: flex; justify-content: center; align-items: center'>
+                
+                $x -- $y
+        
+        </div>
+        ";
+
+    echo "<div style='display: flex; flex-direction: column;'>";
+    echo "<p style='justify-content: center'><strong>PLAYER TWO</strong></p>";
+    echo "Card Name: ";
+    print_r($cartes[$val_rand2][$ScoreJ2][0]);
+    print_r($cartes[$val_rand2][$ScoreJ2][1]);
+    echo "</div>";
+
+    echo "</div>";
+
+    echo "<hr>";
+}
+
+
+?>
+<?php
+if ($x > $y){
+    echo "<div align='center'><strong>THE WINNING IS: PLAYER ONE </strong></div>";
+}elseif ($x < $y){
+    echo "<div align='center'><strong>THE WINNING IS: PLAYER TWO </strong></div>";
+}else{
+    echo "<div align='center'><strong>DRAW GAME!!! </strong></div>";
+}
+
+
+
+
+
+
+
+
+
